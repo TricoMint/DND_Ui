@@ -127,6 +127,42 @@ flex: 0 0 auto;
   font-size: 30px
 }
 
+.stat-toggle{
+  border: 0;
+  background: transparent;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+}
+
+
+.stat-drawer{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 180ms ease;
+  background: #2b2b2b;
+}
+
+.stat-drawer.open{
+  max-height: 40px;
+}
+
+.drawer-row{
+  display:flex;
+  justify-content:space-between;
+  padding: 6px 10px;
+  font-size: 18px;
+}
+
+.stat-toggle img{
+  width: 48px;
+  height: 48px;
+  image-rendering: pixelated;
+}
+
+
 </style>
 </head>
 
@@ -183,12 +219,18 @@ flex: 0 0 auto;
   </div>
 
 <div class="stat-box">
-  <div class="stat-item">
+  <button class="stat-item stat-toggle" type="button" data-target="drawer-str" aria-expanded="false">
+
   <img src="../../assets/images/staticons/STRgifrepeat.gif">
-  <span class="stat-name">
-    S<span style="font-size: 16px;">TRENGTH</span></span>
+  <span class="stat-name">S<span style="font-size: 16px;">TRENGTH</span></span>
   <span class="stat-val">10</span>
+</button>
+
+<div class="stat-drawer" id="drawer-str">
+  <div class="drawer-row"><span>Athletics</span><span>+0</span></div>
 </div>
+
+
 
     <div class="stat-item">
       <img src="../../assets/images/staticons/DEXgifrepeat.gif">
@@ -278,6 +320,18 @@ flex: 0 0 auto;
     updateHeartSprite();
 
   });
+
+  document.querySelectorAll(".stat-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const id = btn.getAttribute("data-target");
+    const drawer = document.getElementById(id);
+    if (!drawer) return;
+
+    const isOpen = drawer.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(isOpen));
+  });
+});
+
 </script>
 
 </body>
