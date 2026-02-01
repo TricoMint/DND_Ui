@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Pixelify";
+  src: url("../fonts/PixelifySans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pixelify";
+  src: url("../fonts/PixelifySans-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pixelify";
+  src: url("../fonts/PixelifySans-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Pixelify";
+  src: url("../fonts/PixelifySans-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Jersey10";
+  src: url("../fonts/Jersey10-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Jersey15";
+  src: url("../fonts/Jersey15-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Jersey20";
+  src: url("../fonts/Jersey20-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Jersey25";
+  src: url("../fonts/Jersey25-Regular.ttf");
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  width: 300px;
+  padding: 20px;
+  margin: 0px 0;
+  border: 2px solid #60d40c83;
+  font-size: 48px;
+  text-align: center;
+  position: relative
+}
+
+.box-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.hover-img {
+  display: none;
+  position: absolute;
+  right: -60px;     
+  top: 50%;
+  transform: translateY(-0%);
+  pointer-events: none;
+}
+
+.corner-img { /*Credits Ankha bottom*/
+  position: fixed;
+  bottom: -50px;
+  right: -35px;
+  width: 150px;
+}
+
+.corner-text { /*Credits Ankha bottom*/
+  position: fixed;
+  bottom: 60px;
+  right: 8px;
+
+  font-family: "Pixelify", sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+
+.box:hover .hover-img {
+  display: block;
+}
+
+.menu-row {
+  display: flex;
+}
+
+.arrow-box,
+.text-box {
+  font-family: "Pixelify", sans-serif;
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-box {
+  width: 5px; 
+  padding: 13px;
+}
+
+.arrow-box img {
+  visibility: hidden;
+}
+
+.menu-link:hover .arrow-box img {
+  visibility: visible;
+}
+
+
+.text-box {
+  width: 250px; 
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: inherit;
+}

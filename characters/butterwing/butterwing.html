@@ -1,0 +1,284 @@
+<head>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <style>
+    .hp-fraction {
+  position: absolute;
+  bottom: 10px;
+  left: 78px;
+  width: 64px;
+  height: 48px;
+  font-size: 25px;
+  line-height: 1;
+  color: #ffffff;
+  font-family: 'Jersey20';
+  text-shadow: 2px 2px 0 #000;
+  font-weight: 400;
+}
+
+.hp-top {
+  position: absolute;
+  top: 2px;
+  left: -3px;
+}
+
+.hp-bottom {
+  position: absolute;
+  bottom: -3px;
+  right: 25px;
+}
+
+.hp-slash {
+  position: absolute;
+  top: 27px;
+  left: 18px;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  transform: translate(-50%, -50%) rotate(-35deg);
+  box-shadow: 2px 2px 0 #000;
+}
+
+#hp-hitbox {
+  position: absolute;
+  border: 2px solid #ff0000;
+  bottom: 0px;
+  left: 12px;
+  width: 110px;
+  height: 55px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sprite-label {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Jersey10', sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 #000;
+  pointer-events: none;
+}
+
+.stat-box {
+position: absolute;
+top: 100px; 
+left: 10px;
+width: 205px;
+background: #1f1f1f51;
+font-size: 20px;
+font-family: 'Jersey10';
+letter-spacing: 1px;
+text-shadow: 2px 2px 0 #000; 
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: #bbb;
+}
+
+.stat-value {
+  color: #fff;
+}
+
+.sprite-stack,
+.stat-box {
+  box-sizing: border-box;
+}
+
+.stat-list {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+.stat-item {
+  padding: 0px 10px 0px 5px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 48px 100px 40px;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.stat-box .stat-item:nth-child(odd) {
+  background-color: #3a3a3a;
+}
+
+.stat-box .stat-item:nth-child(even) {
+  background-color: #4c4c4c;
+}
+
+.stat-item img {
+width: 48px;
+height: 48px;
+image-rendering: pixelated;
+flex: 0 0 auto;
+}
+
+.stat-val {
+  font-size: 30px
+}
+
+</style>
+</head>
+
+
+<body style="
+  font-family: 'Jersey10', sans-serif;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(100deg, #656363, #292929);
+">
+  <h1 style="margin-top: 2px; 
+            letter-spacing: 1px;
+            text-shadow: 5px 8px 0 #000; 
+  ">ButterWing Jones</h1>
+
+  <div class="sprite-stack" style="
+    position: relative;
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    margin: -40px auto 10px auto;
+    border: 0px solid #000;
+    background-color: #29292982;
+  ">
+  <div class="sprite-label">Level 3</div>
+
+    <img src="butterwing.png" style="
+      width: 250px;
+      height: 250px;
+      image-rendering: pixelated;
+      display: block;
+    ">
+
+    <img id="hp-heart-img" src="../../assets/images/heart/heart100.png" style="
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  image-rendering: pixelated;
+">
+
+    <div class="hp-fraction">
+  <span class="hp-top" id="hp-current">22</span>
+  <span class="hp-slash"></span>
+  <span class="hp-bottom" id="hp-max">24</span>
+</div>
+<div id="hp-hitbox"></div>
+  </div>
+
+<div class="stat-box">
+  <div class="stat-item">
+  <img src="../../assets/images/staticons/STRgifrepeat.gif">
+  <span class="stat-name">
+    S<span style="font-size: 16px;">TRENGTH</span></span>
+  <span class="stat-val">10</span>
+</div>
+
+    <div class="stat-item">
+      <img src="../../assets/images/staticons/DEXgifrepeat.gif">
+      <span class="stat-name">
+        D<span style="font-size: 16px;">EXTERITY</span></span>
+  <span class="stat-val">10</span>
+    </div>
+
+    <div class="stat-item">
+      <img src="../../assets/images/staticons/CONgifrepeat.gif">
+      <span class="stat-name">
+        C<span style="font-size: 16px;">ONSTITUTION</span></span>
+  <span class="stat-val">10</span>
+    </div>
+
+    <div class="stat-item">
+      <img src="../../assets/images/staticons/INTgifrepeat.gif">
+      <span class="stat-name">
+        I<span style="font-size: 16px;">NTELLIGENCE</span></span>
+  <span class="stat-val">18</span>
+    </div>
+
+    <div class="stat-item">
+      <img src="../../assets/images/staticons/WISgifrepeat.gif">
+      <span class="stat-name">
+        W<span style="font-size: 16px;">ISDOM</span></span>
+  <span class="stat-val">10</span>
+    </div>
+
+    <div class="stat-item">
+      <img src="../../assets/images/staticons/CHAgifrepeat.gif">
+      <span class="stat-name">
+        C<span style="font-size: 16px;">HARISMA</span></span>
+  <span class="stat-val">10</span>
+    </div>
+  </div>
+
+</div>
+
+  <script>
+  const hitbox = document.getElementById("hp-hitbox");
+  const hpCurrentEl = document.getElementById("hp-current");
+  const hpMaxEl = document.getElementById("hp-max");
+
+  const heartImg = document.getElementById("hp-heart-img");
+
+  const HEART_LEVELS = [0, 9, 16, 23, 30, 37, 44, 51, 58, 65, 72, 79, 86, 93, 100];
+  const HEART_FOLDER = "../../assets/images/heart/";
+
+  function nearestHeartLevel(pct) {
+    let best = HEART_LEVELS[0];
+    let bestDist = Math.abs(pct - best);
+    for (const lvl of HEART_LEVELS) {
+      const dist = Math.abs(pct - lvl);
+      if (dist < bestDist) {
+        best = lvl;
+        bestDist = dist;
+      }
+    }
+    return best;
+  }
+
+  function updateHeartSprite() {
+    const current = parseInt(hpCurrentEl.textContent, 10);
+    const max = parseInt(hpMaxEl.textContent, 10);
+    if (!Number.isFinite(current) || !Number.isFinite(max) || max <= 0) return;
+
+    const pct = Math.round((current / max) * 100);
+    const clamped = Math.max(0, Math.min(pct, 100));
+    const level = nearestHeartLevel(clamped);
+
+    heartImg.src = `${HEART_FOLDER}heart${level}.png`;
+  }
+  updateHeartSprite();
+
+  hitbox.addEventListener("click", () => {
+    const current = parseInt(hpCurrentEl.textContent, 10);
+    const max = parseInt(hpMaxEl.textContent, 10);
+
+    const input = prompt("Set current HP:", String(current));
+    if (input === null) return;
+
+    const next = parseInt(input, 10);
+    if (Number.isNaN(next)) return;
+
+    hpCurrentEl.textContent = String(Math.max(0, Math.min(next, max)));
+    updateHeartSprite();
+
+  });
+</script>
+
+</body>
+
