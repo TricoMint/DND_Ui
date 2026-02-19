@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Health Bar Test</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1a1a1a;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bar-container {
+        width: 250px;
+        height: 250px;
+        position: relative;
+    }
+
+    .bar-container img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    input {
+        width: 250px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="bar-container">
+    <img id="damageBar" src="">
+    <img id="healthBar" src="">
+</div>
+
+<input type="range" min="0" max="100" step="1" value="100" id="hpSlider">
+
+<script>
+const basePath = "../assets/images/healthbar/healthbarinfo/";
+ // <-- CHANGE THIS
+
+const healthImg = document.getElementById("healthBar");
+const damageImg = document.getElementById("damageBar");
+const slider = document.getElementById("hpSlider");
+
+let currentHP = 100;
+let damageHP = 100;
+
+function snapToFrame(value) {
+    return Math.round(value / 2.5) * 2.5;
+}
+
+function updateSprites(healthValue, damageValue) {
+    const hFrame = snapToFrame(healthValue);
+    const dFrame = snapToFrame(damageValue);
+
+    healthImg.src = `${basePath}healthbar${hFrame}.png`;
+    damageImg.src = `${basePath}damagebar${dFrame}.png`;
+}
+
+function animateDamageBar(target) {
+    const interval = setInterval(() => {
+        if (damageHP > target) {
+            damageHP -= 1;
+            updateSprites(currentHP, damageHP);
+        } else {
+            clearInterval(interval);
+        }
+    }, 200);
+}
+
+slider.addEventListener("input", () => {
+    currentHP = parseFloat(slider.value);
+    updateSprites(currentHP, damageHP);
+    animateDamageBar(currentHP);
+});
+
+updateSprites(currentHP, damageHP);
+</script>
+
+</body>
+</html>
