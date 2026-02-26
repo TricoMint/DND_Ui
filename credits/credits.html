@@ -1,11 +1,29 @@
 <head>
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
     
     button {
 font-family: 'Pixelify', sans-serif;
 font-weight: 400;
 }
+
+.corner-img {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 120px;
+      height: auto;
+      image-rendering: pixelated;
+      pointer-events: none;
+    }
+.corner-text {
+      position: fixed;
+      bottom: 20px;
+      right: 50px;
+      font-size: 20px;
+      text-shadow: #700808 1px 0 0, #700808 -1px 0 0, #700808 0 1px 0, #700808 0 -1px 0;
+    }
+
   </style>
 </head>
 
@@ -15,29 +33,37 @@ font-weight: 400;
   font-weight: 500;
   font-size: 35px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  height: 100vh;
+  margin: 0;
   color: rgb(165, 1, 165);
   background: radial-gradient(circle, #fff700, #8c93ba);
-;
 ">
-  <h1 style="font-weight: 00;">I made dits</h1>
 
-  <div id="tiara" style="
-    border: 10px solid #700808;
-    padding: 12px 24px;
-    margin-bottom: 16px;
+  <div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   ">
 
-<img src="buhbus.png" alt="Icon" style="width: 384px; height: 384px; image-rendering: pixelated;">
+    <h1 style="font-weight: 400;">I made dits</h1>
+
+    <div id="tiara" style="
+      border: 10px solid #700808;
+      padding: 12px 24px;
+      margin-bottom: 16px;
+    ">
+      <img src="buhbus.png"
+           alt="Icon"
+           style="width: 384px; height: 384px; image-rendering: pixelated;">
+    </div>
+
   </div>
-    
-<img src="ankha.png" class="corner-img">
 
-<div class="corner-text">I helped!
-</div>
+  <img src="ankha.png" class="corner-img">
 
+  <div class="corner-text">I helped!</div>
 
 </body>

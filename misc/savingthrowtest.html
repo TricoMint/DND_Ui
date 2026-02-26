@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Saving Throw Crossfade Test</title>
+  <style>
+    :root {
+      --sprite-size: 320px;   /* adjust to taste */
+      --fade-period: 5s;  /* duration of one full swap */
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      display: grid;
+      place-items: center;
+    }
+
+    /* Container stays centered */
+    .stage {
+      position: relative;
+      width: var(--sprite-size);
+      height: var(--sprite-size);
+    }
+
+    .stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+      /* pixel-art crispness */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+
+      opacity: 0;
+      animation: fade var(--fade-period) ease-in-out infinite;
+    }
+
+    /* Angel starts visible */
+    #angel {
+      animation-delay: 0ms;
+    }
+
+    /* Reaper is offset by half the period so it crossfades */
+    #reaper {
+      animation-delay: calc(var(--fade-period) / 2);
+    }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      15%  { opacity: 1; }
+      50%  { opacity: 1; }
+      85%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stage" aria-label="Saving throw outcome visual">
+    <img id="angel" src="../assets/images/savingthrow/angel.png" alt="Angel" />
+    <img id="reaper" src="../assets/images/savingthrow/reaper.png" alt="Reaper" />
+  </div>
+</body>
+</html>
